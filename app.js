@@ -36,9 +36,37 @@ app.get('/good', isLoggedIn, (req, res) => {
     res.render("pages/profile", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
 })
 
+app.get('/pool1', isLoggedIn, (req, res) => {
+    res.render("pages/pool1", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+app.get('/pool2', isLoggedIn, (req, res) => {
+    res.render("pages/pool2", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+
+app.get('/pool3', isLoggedIn, (req, res) => {
+    res.render("pages/pool3", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+app.get('/pool4', isLoggedIn, (req, res) => {
+    res.render("pages/pool4", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+app.get('/pool5', isLoggedIn, (req, res) => {
+    res.render("pages/pool5", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+app.get('/pool6', isLoggedIn, (req, res) => {
+    res.render("pages/pool6", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+app.get('/pool7', isLoggedIn, (req, res) => {
+    res.render("pages/pool7", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+
+app.get('/profile', isLoggedIn, (req, res) => {
+    res.render("pages/profile", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+})
+
+
 // Auth Routes
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
+      /* GET Signup */ 
 app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/failed' }),
     function (req, res) {
         // Successful authentication, redirect home.
@@ -51,5 +79,7 @@ app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 })
+
+
 
 app.listen(5000, () => console.log(`Example app listening on port ${5000}!`))
